@@ -18,9 +18,9 @@ $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 
 # Descarca imaginea
 $url = "https://images.squarespace-cdn.com/content/v1/5cd84a9a7a1fbd664d5fba16/1605368276242-GOW1Y44V56X4YVA7LGEX/You_Are_Free_Pin.jpg"
-$output = "$env:USERPROFILE\Desktop\unPwned.jpg"
-$webClient = New-Object System.Net.WebClient
-$webClient.DownloadFile($url, $output)
+$outputPath = "C:\Users\ionut\Downloads\unPwned.jpg" 
+Invoke-WebRequest -Uri $imageUrl -OutFile $outputPath 
+Write-Output "Image downloaded successfully to $outputPath"
 
 # Seteaza imaginea descarcata ca desktop background
-[Wallpaper]::SystemParametersInfo(20, 0, "$env:USERPROFILE\Desktop\unPwned.jpg" , 3)
+[Wallpaper]::SystemParametersInfo(20, 0, "C:\Users\ionut\Downloads\unPwned.jpg" , 3)
