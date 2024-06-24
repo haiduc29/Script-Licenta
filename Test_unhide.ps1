@@ -16,4 +16,4 @@ Add-Type -TypeDefinition @"
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
 
-[Wallpaper]::SystemParametersInfo(20, 0, "C:\Windows\Web\Wallpaper\Windows\img0.jpg" , 3)
+[Wallpaper]::SystemParametersInfo(20, 0, "C:\Windows\Web\Wallpaper\Windows\img0" , 3)
