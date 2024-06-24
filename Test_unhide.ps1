@@ -16,6 +16,7 @@ Add-Type -TypeDefinition @"
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
 
+try{
 # Descarca imaginea
 $url = "https://similarpng.com/wp-content/uploadPngfree/thumbnail/2024/02/Business-Technology-Digital-High-Tech-World-Background.png"
 $outputPath = "C:\Users\ionut\Downloads\unPwned.jpg" 
@@ -24,3 +25,5 @@ Write-Output "Image downloaded successfully to $outputPath"
 
 # Seteaza imaginea descarcata ca desktop background
 [Wallpaper]::SystemParametersInfo(20, 0, "C:\Users\ionut\Downloads\unPwned.jpg" , 3)
+}
+catch{}
