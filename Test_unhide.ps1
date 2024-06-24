@@ -2,6 +2,11 @@ Add-Type -TypeDefinition @"
     using System;
     using System.Runtime.InteropServices;
 
+    public class Wallpaper {
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+}
+
     public class Taskbar {
         [DllImport("user32.dll")]
         public static extern IntPtr FindWindow(string className, string windowText);
