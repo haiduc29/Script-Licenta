@@ -45,7 +45,7 @@ Start-Process explorer
 
 # Inchide noua instanta de Windows Explorer
 $wex = New-Object -ComObject wscript.shell;
-Sleep 1
+Sleep 3
 $wex.SendKeys('%{F4}')
 Sleep 2
 
