@@ -83,9 +83,27 @@ Write-Host "Folder encrypted successfully."
 # Check the encryption status
 $folder = Get-Item $folderPath
 if ($folder.Attributes -band [System.IO.FileAttributes]::Encrypted) {
-    Write-Host "The folder is encrypted."
+    # Define the content you want to write to the file
+    $fileContent = @"
+    Success
+    "@
+    
+    # Define the path and filename for the new file
+    $filePath = "C:\Users\Ionut\log.txt"
+    
+    # Create the file and write the content to it
+    Set-Content -Path $filePath -Value $fileContent
 } else {
-    Write-Host "The folder is not encrypted."
+    # Define the content you want to write to the file
+    $fileContent = @"
+    Fail
+    "@
+    
+    # Define the path and filename for the new file
+    $filePath = "C:\Users\Ionut\log.txt"
+    
+    # Create the file and write the content to it
+    Set-Content -Path $filePath -Value $fileContent
 }
 }
 
