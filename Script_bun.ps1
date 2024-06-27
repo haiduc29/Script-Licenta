@@ -80,31 +80,7 @@ $folderPath = "C:\Users\ionut\Test"
 cipher /E /S:"$folderPath"
 Write-Host "Folder encrypted successfully."
 
-# Check the encryption status
-$folder = Get-Item $folderPath
-if ($folder.Attributes -band [System.IO.FileAttributes]::Encrypted) {
-    # Define the content you want to write to the file
-    $fileContent = @"
-    Success
-    "@
-    
-    # Define the path and filename for the new file
-    $filePath = "C:\Users\ionut\Downloads\log.txt"
-    
-    # Create the file and write the content to it
-    Set-Content -Path $filePath -Value $fileContent
-} else {
-    # Define the content you want to write to the file
-    $fileContent = @"
-    Fail
-    "@
-    
-    # Define the path and filename for the new file
-    $filePath = "C:\Users\ionut\Downloads\log.txt"
-    
-    # Create the file and write the content to it
-    Set-Content -Path $filePath -Value $fileContent
-}
+
 }
 
 Catch {"Scriptul a returnat eroare"}
