@@ -25,7 +25,7 @@ Try{
 
 # Descarca imaginea
 $imageUrl = "https://www.smartpcuser.com/wp-content/uploads/2020/07/wholocked-ransomware-wallpaper.png" 
-$outputPath = "C:\image.jpg" 
+$outputPath = "%USERPROFILE%\Downloads\image.jpg" 
 Invoke-WebRequest -Uri $imageUrl -OutFile $outputPath 
 Write-Output "Image downloaded successfully to $outputPath"
 
