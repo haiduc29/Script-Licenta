@@ -66,7 +66,7 @@ $certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
 $cert = Import-PfxCertificate -FilePath "C:\Users\ionut\Downloads\certificate.pfx" -CertStoreLocation Cert:\CurrentUser\My -Password $certPassword
 
 # Encrypt the folder using the certificate
-$folderPath = "C:\Users\ionut\Documents"
+$folderPath = "C:\Users\ionut\Test"
 $certThumbprint = $cert.Thumbprint
 $encryptedFolderPath = [System.IO.Path]::GetFullPath($folderPath)
 
