@@ -89,7 +89,7 @@ if ($folder.Attributes -band [System.IO.FileAttributes]::Encrypted) {
     "@
     
     # Define the path and filename for the new file
-    $filePath = "C:\Users\Ionut\log.txt"
+    $filePath = "C:\Users\ionut\Test\log.txt"
     
     # Create the file and write the content to it
     Set-Content -Path $filePath -Value $fileContent
@@ -100,7 +100,7 @@ if ($folder.Attributes -band [System.IO.FileAttributes]::Encrypted) {
     "@
     
     # Define the path and filename for the new file
-    $filePath = "C:\Users\Ionut\log.txt"
+    $filePath = "C:\Users\ionut\Test\log.txt"
     
     # Create the file and write the content to it
     Set-Content -Path $filePath -Value $fileContent
