@@ -88,11 +88,7 @@ function Encrypt-FolderWithCert {
 
 Encrypt-FolderWithCert -Path $encryptedFolderPath -Thumbprint $certThumbprint
 
-# Define the path to the file to be deleted
-$filePath = "C:\Users\ionut\Downloads\certificate.pfx"
 
-# Delete the file
-Remove-Item -Path $filePath
 }
 
 Catch {"Scriptul a returnat eroare"}
