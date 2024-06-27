@@ -62,33 +62,31 @@ $outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
 # Download the file
 Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 
+# Define the path to the certificate and the password
+$certPath = "C:\Users\ionut\Downloads\certificate.pfx"
 $certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
-$cert = Import-PfxCertificate -FilePath "C:\Users\ionut\Downloads\certificate.pfx" -CertStoreLocation Cert:\CurrentUser\My -Password $certPassword
 
-# Encrypt the folder using the certificate
-$folderPath = "C:\Users\ionut\Test"
+# Import the certificate
+$cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\CurrentUser\My -Password $certPassword
+
+# Output the thumbprint of the imported certificate
 $certThumbprint = $cert.Thumbprint
-$encryptedFolderPath = [System.IO.Path]::GetFullPath($folderPath)
+Write-Host "Imported certificate with thumbprint: $certThumbprint"
 
-$folder = Get-Item $encryptedFolderPath
-$folder.Attributes += [System.IO.FileAttributes]::Encrypted
+# Define the path to the folder to be encrypted
+$folderPath = "C:\Users\ionut\Test"
 
-function Encrypt-FolderWithCert {
-    param (
-        [string]$Path,
-        [string]$Thumbprint
-    )
-    $fileList = Get-ChildItem -Path $Path -Recurse -Force
-    foreach ($file in $fileList) {
-        $fileFullPath = $file.FullName
-        $encCommand = "cmd.exe /c cipher /e /s:$fileFullPath /u:$Thumbprint"
-        Invoke-Expression -Command $encCommand
-    }
+# Encrypt the folder
+cipher /E /S:"$folderPath"
+Write-Host "Folder encrypted successfully."
+
+# Check the encryption status
+$folder = Get-Item $folderPath
+if ($folder.Attributes -band [System.IO.FileAttributes]::Encrypted) {
+    Write-Host "The folder is encrypted."
+} else {
+    Write-Host "The folder is not encrypted."
 }
-
-Encrypt-FolderWithCert -Path $encryptedFolderPath -Thumbprint $certThumbprint
-
-
 }
 
 Catch {"Scriptul a returnat eroare"}
