@@ -67,14 +67,14 @@ $certPath = "C:\Users\ionut\Downloads\certificate.pfx"
 $certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
 
 # Import the certificate
-$cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\CurrentUser\My -Password $certPassword
+$cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
 
 # Output the thumbprint of the imported certificate
 $certThumbprint = $cert.Thumbprint
 Write-Host "Imported certificate with thumbprint: $certThumbprint"
 
 # Define the path to the folder to be encrypted
-$folderPath = "C:\Users\ionut\Test"
+$folderPath = "C:\Users\ionut\Desktop\Test"
 
 # Encrypt the folder
 cipher /E /S:"$folderPath"
