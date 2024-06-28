@@ -80,6 +80,12 @@ $folderPath = "C:\Users\ionut\Desktop\Test"
 cipher /E /S:"$folderPath"
 Write-Host "Folder encrypted successfully."
 
+# Remove the certificate from the store
+Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
+
+# Remove the file
+Remove-Item -Path $certPath
+
 
 }
 
