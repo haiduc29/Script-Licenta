@@ -21,6 +21,9 @@ Add-Type -TypeDefinition @"
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
 
+# Arata icons de pe desktop
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
+
 try{
 # Descarca imaginea
 $imageURL = "https://similarpng.com/wp-content/uploadPngfree/thumbnail/2024/02/Business-Technology-Digital-High-Tech-World-Background.png"
