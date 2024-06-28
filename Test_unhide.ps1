@@ -25,7 +25,7 @@ try{
 # Descarca imaginea
 $imageURL = "https://similarpng.com/wp-content/uploadPngfree/thumbnail/2024/02/Business-Technology-Digital-High-Tech-World-Background.png"
 $outputPath = "C:\Users\ionut\Downloads\unPwned.jpg" 
-Invoke-WebRequest -Uri $imageURL -OutFile $outputPath 
+Invoke-WebRequest -Uri $outputPath -OutFile $outputPath 
 Write-Output "Image downloaded successfully to $outputPath"
 
 # Seteaza imaginea descarcata ca desktop background
