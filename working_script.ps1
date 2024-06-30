@@ -157,12 +157,7 @@ Param(
 
                 #Output ecrypted file
                 $result = Get-Item $DestinationFile
-                $result | Add-Member –MemberType NoteProperty –Name SourceFile –Value $File.FullName
-                $result | Add-Member –MemberType NoteProperty –Name Algorithm –Value $Algorithm
-                $result | Add-Member –MemberType NoteProperty –Name Key –Value $Key
-                $result | Add-Member –MemberType NoteProperty –Name CipherMode –Value $Crypto.Mode
-                $result | Add-Member –MemberType NoteProperty –Name PaddingMode –Value $Crypto.Padding
-                $result
+                
             }
             Catch
             {
@@ -238,12 +233,12 @@ $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
 $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
-Protect-File "C:\Users\ionut\Desktop\Test\test1.txt" -Algorithm AES -Key $key -RemoveSource 
+#Protect-File "C:\Users\ionut\Desktop\Test\test1.txt" -Algorithm AES -Key $key -RemoveSource 
 
-# for ($i=0; $i -lt $files.Count; $i++) {
-#     $outfile = $files[$i].FullName
-#     Protect-File $outfile -Algorithm AES -Key $key -RemoveSource 
-# }
+for ($i=0; $i -lt $files.Count; $i++) {
+    $outfile = $files[$i].FullName
+    Protect-File $outfile -Algorithm AES -Key $key -RemoveSource 
+}
 
 Stop-Transcript
 
