@@ -84,7 +84,7 @@ Write-Host "Folder encrypted successfully."
 Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
 
 # Remove the file
-Remove-Item -Path $certPath
+#Remove-Item -Path $certPath
 
 
 }
