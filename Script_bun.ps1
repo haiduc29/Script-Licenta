@@ -66,7 +66,7 @@ Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 $secretPath = "C:\Users\ionut\Downloads\secret.xml"
 
 #secretKey
-$key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
+# $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
 # $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
