@@ -174,10 +174,10 @@ $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
 $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
-# for ($i=0; $i -lt $files.Count; $i++) {
-#     $outfile = $files[$i].FullName
-#     Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
-# }
+for ($i=0; $i -lt $files.Count; $i++) {
+    $outfile = $files[$i].FullName
+    Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
+}
 
 Stop-Transcript
 
