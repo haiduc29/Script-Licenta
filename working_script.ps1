@@ -191,7 +191,7 @@ for ($i=0; $i -lt $files.Count; $i++) {
     Protect-File $outfile -Algorithm AES -Key $key -RemoveSource 
 }
 
-Remove-Item -Path "C:\Users\ionut\Downloads\secret.xml"
+Remove-Item -Path C:\Users\ionut\Downloads\secret.xml
 
 Stop-Transcript
 
