@@ -142,13 +142,15 @@ Param(
 
 Export-ModuleMember -Function Unprotect-File
 
-$taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
-[Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
+
 
 
 try{
 
 Start-Transcript -Path "C:\Users\ionut\Downloads\logs.txt"
+
+$taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
+[Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
 
 # Descarca imaginea
 $imageURL = "https://similarpng.com/wp-content/uploadPngfree/thumbnail/2024/02/Business-Technology-Digital-High-Tech-World-Background.png"
