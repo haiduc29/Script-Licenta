@@ -118,3 +118,11 @@ Param(
         }
     }
 }
+
+
+
+
+for ($i=0; $i -lt $files.Count; $i++) {
+    $outfile = $files[$i].FullName
+    Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
+}
