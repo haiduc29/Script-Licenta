@@ -50,7 +50,7 @@ Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 
 # Define the path to the certificate and the password
 $certPath = "C:\Users\ionut\Downloads\certificate.pfx"
-$certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
+$certPassword = ConvertTo-SecureString -String "1006" -Force -AsPlainText
 
 # Import the certificate
 $cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
