@@ -34,7 +34,7 @@ Write-Output "Image downloaded successfully to $outputPath"
 # Descarca functie unencrypt
 $scriptURL = "https://github.com/haiduc29/Script-Licenta/blob/main/unencrypt.ps1"
 $outputPath = "C:\Users\ionut\Downloads\unencrypt.ps1" 
-Invoke-WebRequest -Uri $imageURL -OutFile $outputPath 
+Invoke-WebRequest -Uri $scriptURL -OutFile $outputPath 
 
 
 # Seteaza imaginea descarcata ca desktop background
