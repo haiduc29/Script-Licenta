@@ -68,8 +68,9 @@ Remove-Item -Path C:\Users\ionut\Downloads\secret.xml
 Remove-Item -Path C:\Users\ionut\Downloads\unencrypt.ps1
 
 # Unhide icons on desktop
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
-
+#Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
+Set-Itemproperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name NoDesktop -Value 0
+Stop-Process -Name explorer
 
 }
 catch{"Error"}
