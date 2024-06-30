@@ -140,7 +140,7 @@ Param(
     }
 }
 
-
+Export-ModuleMember -Function Unprotect-File
 
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
