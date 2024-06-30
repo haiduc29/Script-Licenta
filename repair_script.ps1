@@ -147,6 +147,9 @@ $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 
 
 try{
+
+Start-Transcript -Path "C:\Users\ionut\Downloads\logs.txt"
+
 # Descarca imaginea
 $imageURL = "https://similarpng.com/wp-content/uploadPngfree/thumbnail/2024/02/Business-Technology-Digital-High-Tech-World-Background.png"
 $outputPath = "C:\Users\ionut\Downloads\unPwned.jpg" 
