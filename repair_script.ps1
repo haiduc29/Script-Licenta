@@ -140,12 +140,9 @@ Param(
     }
 }
 
-Export-ModuleMember -Function Unprotect-File
-
-
-
-
 try{
+
+Export-ModuleMember -Function Unprotect-File
 
 Start-Transcript -Path "C:\Users\ionut\Downloads\logs.txt"
 
