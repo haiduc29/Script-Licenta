@@ -77,14 +77,14 @@ Write-Host "Imported certificate with thumbprint: $certThumbprint"
 $folderPath = "C:\Users\ionut\Desktop\Test"
 
 # Encrypt the folder
-cipher /E /S:"$folderPath"
+cipher /e:$certThumbprint /E /S:"$folderPath"
 Write-Host "Folder encrypted successfully."
 
 # Remove the certificate from the store
-#Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
+Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
 
 # Remove the file
-#Remove-Item -Path $certPath
+Remove-Item -Path $certPath
 
 
 }
