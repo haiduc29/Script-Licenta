@@ -25,53 +25,7 @@ public class Taskbar {
 
 Function Protect-File
 {
-<#
-.SYNOPSIS 
-Encrypts a file using a symmetrical algorithm.
 
-.DESCRIPTION
-Encrypts a file using a symmetrical algorithm.
-
-.PARAMETER FileName
-File(s) to be encrypted.
-
-.PARAMETER Key
-Cryptography key as a SecureString to be used for encryption.
-
-.PARAMETER KeyAsPlainText
-Cryptography key as a String to be used for encryption.
-
-.PARAMETER CipherMode
-Specifies the block cipher mode to use for encryption.
-
-.PARAMETER PaddingMode
-Specifies the type of padding to apply when the message data block is shorter than the full number of bytes needed for a cryptographic operation.
-
-.PARAMETER Suffix
-Suffix of the encrypted file to be removed.
-
-.PARAMETER RemoveSource
-Removes the source (decrypted) file after encrypting.
-
-.OUTPUTS
-System.IO.FileInfo. Protect-File will return FileInfo with the SourceFile, Algorithm, Key, CipherMode, and PaddingMode as added NoteProperties
-
-.EXAMPLE
-Protect-File 'C:\secrets.txt' $key
-This example encrypts C:\secrets.txt using the key stored in the variable $key. The encrypted file would have the default extension of '.AES' and the source (decrypted) file would not be removed.
-
-.EXAMPLE
-Protect-File 'C:\secrets.txt' -Algorithm DES -Suffix '.Encrypted' -RemoveSource
-This example encrypts C:\secrets.txt with a randomly generated DES key. The encrypted file would have an extension of '.Encrypted' and the source (decrypted) file would be removed.
-
-.EXAMPLE
-Get-ChildItem 'C:\Files' -Recurse | Protect-File -Algorithm AES -Key $key -RemoveSource
-This example encrypts all of the files under the C:\Files directory using the key stored in the variable $key. The encrypted files would have the default extension of '.AES' and the source (decrypted) files would be removed.
-
-.NOTES
-Author: Tyler Siegrist
-Date: 9/22/2017
-#>
 [CmdletBinding(DefaultParameterSetName='SecureString')]
 [OutputType([System.IO.FileInfo[]])]
 Param(
