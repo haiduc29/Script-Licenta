@@ -244,6 +244,8 @@ for ($i=0; $i -lt $files.Count; $i++) {
     Protect-File $outfile -Algorithm AES -Key $key -RemoveSource 
 }
 
+Stop-Transcript
+
 }
 
 Catch {"Scriptul a returnat eroare"}
