@@ -56,7 +56,6 @@ $secretPath = "C:\Users\ionut\Downloads\secret.xml"
 # Unhide icons on desktop
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
 
-Stop-Transcript
 
 }
 catch{"Error"}
