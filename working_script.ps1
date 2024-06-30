@@ -1,6 +1,3 @@
-# Defineste si apeleaza o functie API de Windows pentru a ajuta la schimbarea wallpaper-ului, precum si cea de ascundere taskbar
-
-
 Add-Type -TypeDefinition @"
 using System;
 using System.Runtime.InteropServices;
