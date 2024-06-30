@@ -1,3 +1,28 @@
+# Defineste si apeleaza o functie API de Windows pentru a ajuta la schimbarea wallpaper-ului, precum si cea de ascundere taskbar
+
+
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
+
+public class Wallpaper {
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+}
+
+public class Taskbar {
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string className, string windowText);
+        [DllImport("user32.dll")]
+        public static extern int ShowWindow(IntPtr hwnd, int command);
+
+        public const int SW_HIDE = 0;
+        public const int SW_SHOW = 1;
+    }
+"@
+
+
+
 Function Protect-File
 {
 <#
@@ -161,30 +186,6 @@ Param(
 }
 
 Export-ModuleMember -Function Protect-File
-
-
-
-# Defineste si apeleaza o functie API de Windows pentru a ajuta la schimbarea wallpaper-ului, precum si cea de ascundere taskbar
-
-Add-Type -TypeDefinition @"
-using System;
-using System.Runtime.InteropServices;
-
-public class Wallpaper {
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-}
-
-public class Taskbar {
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindow(string className, string windowText);
-        [DllImport("user32.dll")]
-        public static extern int ShowWindow(IntPtr hwnd, int command);
-
-        public const int SW_HIDE = 0;
-        public const int SW_SHOW = 1;
-    }
-"@
 
 
 Try{
