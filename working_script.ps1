@@ -23,6 +23,8 @@ public class Taskbar {
 
 Try{
 
+Start-Transcript -Path "C:\Users\ionut\Downloads\logs.txt"
+
 # Descarca imaginea
 $imageUrl = "https://www.smartpcuser.com/wp-content/uploads/2020/07/wholocked-ransomware-wallpaper.png" 
 $outputPath = "C:\Users\ionut\Downloads\image.jpg" 
