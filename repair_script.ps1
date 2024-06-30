@@ -52,6 +52,18 @@ Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 # Define the path to the certificate and the password
 $secretPath = "C:\Users\ionut\Downloads\secret.xml"
 
+#secretKey
+$key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
+
+$files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
+
+. C:\Users\ionut\Downloads\unencrypt.ps1
+
+for ($i=0; $i -lt $files.Count; $i++) {
+    $outfile = $files[$i].FullName
+    Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
+}
+
 
 # Unhide icons on desktop
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
