@@ -32,7 +32,7 @@ Invoke-WebRequest -Uri $imageURL -OutFile $outputPath
 Write-Output "Image downloaded successfully to $outputPath"
 
 # Descarca functie unencrypt
-$scriptURL = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/unencrypt.ps1"
+$scriptURL = "https://github.com/haiduc29/Script-Licenta/blob/main/unencrypt.ps1"
 $outputPath = "C:\Users\ionut\Downloads\unencrypt.ps1" 
 Invoke-WebRequest -Uri $imageURL -OutFile $outputPath 
 
