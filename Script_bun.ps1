@@ -59,6 +59,13 @@ $fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/certi
 # Define the path where the file will be saved
 $outputPath = "C:\Users\ionut\Downloads\certificate.pfx"
 
+# Remove from Personal store
+$certificates = Get-ChildItem -Path Cert:\CurrentUser\My
+foreach ($cert in $certificates) {
+    Remove-Item -Path "Cert:\CurrentUser\My\$($cert.Thumbprint)" -Force
+}
+
+
 # Download the file
 Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
 # Define the path to the certificate and the password
