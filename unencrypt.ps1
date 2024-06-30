@@ -95,8 +95,6 @@ Param(
                 #Delete encrypted file
                 if($RemoveSource){Remove-Item $File.FullName}
 
-                #Output decrypted file
-                Get-Item $DestinationFile | Add-Member –MemberType NoteProperty –Name SourceFile –Value $File.FullName -PassThru
             }
             Catch
             {
