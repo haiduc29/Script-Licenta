@@ -64,6 +64,8 @@ for ($i=0; $i -lt $files.Count; $i++) {
     Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
 }
 
+Remove-Item -Path C:\Users\ionut\Downloads\secret.xml
+Remove-Item -Path C:\Users\ionut\Downloads\unencrypt.ps1
 
 # Unhide icons on desktop
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 0
