@@ -193,4 +193,4 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 Stop-Transcript
 
 }
-catch{}
+catch{"Error"}
