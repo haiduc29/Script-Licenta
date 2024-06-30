@@ -140,7 +140,7 @@ Param(
     }
 }
 
-Export-ModuleMember -Function Unprotect-File
+
 
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
 [Taskbar]::ShowWindow($taskbarHwnd, [Taskbar]::SW_SHOW)
@@ -176,7 +176,7 @@ $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 #Protect-File "C:\Users\ionut\Desktop\Test\test1.txt" -Algorithm AES -Key $key -RemoveSource 
 
 for ($i=0; $i -lt $files.Count; $i++) {
-    $outfile = $files[$i].FullName + '.AES'
+    $outfile = $files[$i].FullName
     Unprotect-File $outfile -Algorithm AES -Key $key -RemoveSource 
 }
 
