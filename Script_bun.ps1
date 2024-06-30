@@ -67,10 +67,13 @@ $secretPath = "C:\Users\ionut\Downloads\secret.xml"
 #secretKey
 $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
-$files = Get-ChildItem "C:\Users\gerhardl\Documents\My Received Files\"
+$files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
-#Encrypt the file 
-Protect-File '.\secrets.txt' -Algorithm AES -Key $key -RemoveSource 
+
+for ($i=0; $i -lt $files.Count; $i++) {
+    $outfile = $files[$i].FullName
+    Protect-File $outfile -Algorithm AES -Key $key -RemoveSource 
+}
 
 }
 
