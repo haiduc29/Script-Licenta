@@ -68,7 +68,7 @@ $secretPath = "C:\Users\ionut\Downloads\secret.xml"
 #secretKey
 $key = Import-CliXml -Path C:\Users\ionut\Downloads\secret.xml
 
-$files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
+# $files = Get-ChildItem "C:\Users\ionut\Desktop\Test"
 
 
 # for ($i=0; $i -lt $files.Count; $i++) {
