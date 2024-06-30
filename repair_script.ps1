@@ -140,10 +140,9 @@ Param(
     }
 }
 
-try{
-
 Export-ModuleMember -Function Unprotect-File
 
+try{
 Start-Transcript -Path "C:\Users\ionut\Downloads\logs.txt"
 
 $taskbarHwnd = [Taskbar]::FindWindow("Shell_TrayWnd", "")
