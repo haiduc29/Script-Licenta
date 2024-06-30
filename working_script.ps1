@@ -152,10 +152,8 @@ $shell.MinimizeAll()
 [Wallpaper]::SystemParametersInfo(20, 0, "C:\Users\ionut\Downloads\image.jpg" , 3)
 
 # Ascunde icons de pe desktop
-#Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 1
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideIcons -Value 1
 
-Set-Itemproperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name NoDesktop -Value 1
-Stop-Process -Name explorer
 
 # Restart Explorer
 Stop-Process -ProcessName explorer -Force
